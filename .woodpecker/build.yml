@@ -1,0 +1,20 @@
+pipeline:
+  install:
+    image: node:18
+    commands:
+      - yarn
+  lint:
+    image: node:18
+    commands:
+      - yarn lint
+  build:
+    image: node:18
+    commands:
+      - yarn build:static
+  pin-cluster:
+    image: cofob/ipfs-cluster-ctl
+    commands:
+      - ipfs-cluster-ctl --host /dns4/rat.frsqr.xyz/tcp/9094 --basic-auth default:$CLUSTER_SECRET add -r --expire-in 2160h --name frontend/preview/$(date +%s) -Q build/ > cid.txt
+      - cat cid.txt
+      - echo "https://ipfsqr.ru/ipfs/$(cat cid.txt)"
+    secrets: [CLUSTER_SECRET]

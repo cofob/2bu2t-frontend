@@ -1,0 +1,9 @@
+.direnv
+.DS_Store
+node_modules
+/build
+result
+/.svelte-kit
+/package
+!.env
+.env.*
