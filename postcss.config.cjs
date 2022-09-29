@@ -1,3 +1,11 @@
+const fs = require("fs");
+
+function append(data) {
+	fs.appendFile("classes.json", JSON.stringify(data) + "\n", function (err) {
+		if (err) throw err;
+	});
+}
+
 let config = {
 	plugins: {
 		"postcss-import": {},
@@ -7,6 +15,8 @@ let config = {
 };
 
 if (process.env.PROD == "true") {
+	fs.writeFileSync("classes.json", "", { encoding: "utf8", flag: "w" });
+
 	config.plugins = {
 		...config.plugins,
 		cssnano: {
@@ -20,6 +30,11 @@ if (process.env.PROD == "true") {
 			data: {
 				tw: "--fs-",
 			},
+		},
+		"postcss-rename": {
+			strategy: "minimal",
+			by: "whole",
+			outputMapCallback: append,
 		},
 	};
 }

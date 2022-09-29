@@ -18,7 +18,8 @@
           package = bp.legacyPackages.x86_64-linux.buildYarnPackage {
             src = ./.;
             installPhase = ''
-              yarn build
+              yarn build:flake
+							${pkgs.python3}/bin/python3 $src/replace.py
               rm -rf node_modules/
               cat <<-END >> .yarnrc
                 yarn-offline-mirror "$PWD/yarn-cache"

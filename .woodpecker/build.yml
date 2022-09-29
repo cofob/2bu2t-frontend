@@ -10,6 +10,7 @@ pipeline:
   build:
     image: node:18
     commands:
+      - apt-get update && apt-get install python3 -y
       - yarn build:static
   pin-cluster:
     image: cofob/ipfs-cluster-ctl

@@ -1615,6 +1615,11 @@ postcss-calc@^8.2.3:
     postcss-selector-parser "^6.0.9"
     postcss-value-parser "^4.2.0"
 
+postcss-class-rename@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-class-rename/-/postcss-class-rename-1.0.1.tgz#5ff90cc78f6800b5971bed23d25db929a7b40b02"
+  integrity sha512-p7mjgoinuuKL7wvxzrj3BD5wN9mHUNNwHCS7sEMd0BsrTC+ly07ie9tqLzEeZEEYhBGWV8FJK69AHI5S/1FV9g==
+
 postcss-colormin@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/postcss-colormin/-/postcss-colormin-5.3.0.tgz#3cee9e5ca62b2c27e84fce63affc0cfb5901956a"
@@ -1850,6 +1855,13 @@ postcss-reduce-transforms@^5.1.0:
   integrity sha512-2fbdbmgir5AvpW9RLtdONx1QoYG2/EtqpNQbFASDlixBbAYuTcJ0dECwlqNqH7VbaUnEnh8SrxOe2sRIn24XyQ==
   dependencies:
     postcss-value-parser "^4.2.0"
+
+postcss-rename@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/postcss-rename/-/postcss-rename-0.6.1.tgz#8c969b8633fd7186d6c2e2c6062efd7519b3226b"
+  integrity sha512-bsj9TMuPnh8pqF/FMX6BB3aZMjTxRdGP0qJHOg4yC2S1DCAomtAVuQaTJC16QTkH5fnrYMP/yYjuXZAibP3QnQ==
+  dependencies:
+    postcss-selector-parser "^6.0.4"
 
 postcss-replace@^2.0.0:
   version "2.0.0"
