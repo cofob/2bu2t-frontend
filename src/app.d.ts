@@ -7,6 +7,7 @@ declare namespace App {
 		VITE_API_ENDPOINT: string;
 		VITE_IPFS_ENDPOINT: string;
 		VITE_DEPLOY_TARGET: string;
+		VITE_ANALYTICS: string;
 	}
 
 	interface ImportMeta {

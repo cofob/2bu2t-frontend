@@ -29,3 +29,6 @@
 <main>
 	<slot />
 </main>
+
+<!-- TODO: add method to completely disably analytics -->
+{@html import.meta.env.VITE_ANALYTICS}
