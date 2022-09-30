@@ -7,14 +7,12 @@
 @layer base {
 	@font-face {
 		font-family: "Manrope";
-		src: url("https://static.ipfsqr.ru/ipfs/QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
+		src: url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
 				format("woff2 supports variations"),
-			url("https://static.ipfsqr.ru/ipfs/QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
+			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
 				format("woff2-variations"),
-			url("https://static.ipfsqr.ru/ipfs/QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
-				format("woff2"),
-			url("https://static.ipfsqr.ru/ipfs/QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.ttf")
-				format("ttf");
+			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2") format("woff2"),
+			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.ttf") format("ttf");
 		font-weight: 100 1000;
 		font-stretch: 25% 151%;
 	}

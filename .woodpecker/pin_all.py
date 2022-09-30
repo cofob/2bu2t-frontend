@@ -5,11 +5,14 @@ import re
 import os
 
 
-AUTH = ("default", os.environ["CLUSTER_SECRET"])
+AUTH = ("default", os.environ.get("CLUSTER_SECRET"))
 ENDPOINT = "https://rat.frsqr.xyz:9094"
 
 
-regex = re.compile(r"ipfs\(\"(\w+)", flags=re.IGNORECASE)
+regex = [
+  re.compile(r"ipfs\(\"(\w+)"),
+  re.compile(r"ipfs://(\w+)"),
+]
 all_pins = requests.get(ENDPOINT + "/allocations", auth=AUTH).text
 pinned_cids = []
 local_cids = []
@@ -17,7 +20,7 @@ unique_cids = []
 
 def find(dir="."):
   for item in os.listdir(dir):
-    if item == ".git":
+    if item in [".git", "node_modules"]:
       continue
     path = os.path.join(dir, item)
     if os.path.isdir(path):
@@ -26,10 +29,18 @@ def find(dir="."):
       try:
         with open(path, 'r') as file:
           content = file.read()
-        for match in regex.findall(content):
-          local_cids.append(match)
-      except Exception:
-        print_exc()
+        for re_item in regex:
+          for match in re_item.findall(content):
+            local_cids.append(match)
+      except:
+        pass
+
+
+find()
+
+local_cids = list(set(local_cids))
+
+print("local cids:", local_cids)
 
 
 def pin_cid(cid):
@@ -43,9 +54,6 @@ for pin_text in all_pins.split("\n"):
   pin = loads(pin_text)
   if pin["name"] == "frontend":
     pinned_cids.append(pin["cid"])
-
-
-find()
 
 
 for cid in local_cids:
