@@ -7,21 +7,16 @@ export default class Api {
 		this.fetch = browser ? fetch.bind(window) : fetch;
 	}
 
-	async api(
-		path: string,
-		body = {},
-		opts = {
-			method: "GET",
-			raw: false,
-		},
-	) {
+	async api(path: string, body = {}, opts = {}) {
 		path = import.meta.env.VITE_API_ENDPOINT + path;
 		body = JSON.stringify(body);
 		const method = opts.method || "GET";
-		const headers = {};
+		const headers = {
+			"Content-Type": "application/json",
+		};
 
 		if (browser) {
-			const token = localStorage.getItem("token");
+			const token = opts.token || sessionStorage.getItem("token");
 			headers.Authorization = token ? "Bearer " + token : "";
 		}
 
