@@ -1,14 +1,15 @@
 <script lang="ts">
-	import Chat from "svelte-heros/Chat.svelte";
-	import BookOpen from "svelte-heros/BookOpen.svelte";
-	import Download from "svelte-heros/Download.svelte";
-	import Login from "svelte-heros/Login.svelte";
+	import X from "svelte-heros/X.svelte";
 	import { ipfs } from "../../utils";
 	import HamburgerItem from "./HamburgerItem.svelte";
 	import Links from "./Links.svelte";
-	import { Link } from "$lib/components";
+	import LeftLinks from "./LeftLinks.svelte";
+	import RightLinks from "./RightLinks.svelte";
 
 	export let backdrop = true;
+
+	let hidden = true;
+	const backdrop_initial = backdrop;
 </script>
 
 <nav
@@ -30,28 +31,30 @@
 				<a href="/" class="font-bold text-lg">firesquare</a>
 			</div>
 			<Links>
-				<Link href={import.meta.env.VITE_WIKI} blank nav><BookOpen size="16" /> Вики</Link>
-				<Link href={import.meta.env.VITE_DISCORD} blank nav><Chat size="16" /> Discord</Link>
+				<LeftLinks />
 			</Links>
 		</div>
 		<Links>
-			<Link href="/auth/login" nav><Login size="16" /> Войти</Link>
-			<Link href="/download" nav>
-				<button href="/download" class="bg-blue-600 rounded-md flex items-center gap-x-2 pr-2 shadow-md">
-					<span class="bg-blue-700 py-1 px-2 rounded-l-md">
-						<Download size="18" />
-					</span> Скачать
-				</button>
-			</Link>
+			<RightLinks />
 		</Links>
 		<div
-			class="flex flex-col gap-y-1 sm:hidden rounded-md p-2 hover:cursor-pointer {!backdrop
+			class="flex flex-col items-center gap-y-1 sm:hidden rounded-md p-2 hover:cursor-pointer motion-safe:transition-all {!backdrop
 				? 'bg-opacity-60 bg-neutral-900'
-				: ''}"
+				: ''} {!hidden ? 'rotate-90' : ''}"
+			on:click={() => {
+				hidden = !hidden;
+				if (!backdrop_initial) {
+					backdrop = !backdrop;
+				}
+			}}
 		>
 			<HamburgerItem />
 			<HamburgerItem />
 			<HamburgerItem />
 		</div>
+	</div>
+	<div class="flex flex-col items-end sm:hidden px-4" class:hidden>
+		<LeftLinks />
+		<RightLinks />
 	</div>
 </nav>
