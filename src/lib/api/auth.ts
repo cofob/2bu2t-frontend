@@ -23,41 +23,6 @@ class UUIDToken extends Api implements Token {
 	}
 }
 
-class RefreshToken extends Api implements Token {
-	async request() {
-		return "";
-	}
-
-	async get() {
-		const token = localStorage.refreshtoken;
-		const jwt = new JWT(token);
-		if (jwt.data.exp <= timestamp()) {
-			delete localStorage.refreshtoken;
-			delete localStorage.uuid;
-			throw Error("Refresh token expired");
-		}
-		return token;
-	}
-}
-
-class AccessToken extends Api implements Token {
-	async request() {
-		const token = await this.api("/authorization/login/get_access_token", {
-			refresh_token: await new RefreshToken(this.fetch).get(),
-		});
-		sessionStorage.token = token;
-		return token;
-	}
-
-	async get() {
-		if (!sessionStorage.getItem("token")) return this.request();
-		const token = sessionStorage.token;
-		const jwt = new JWT(token);
-		if (jwt.data.exp <= timestamp()) return this.request();
-		return token;
-	}
-}
-
 export default class Auth extends Api {
 	async sha256(message) {
 		const msgBuffer = new TextEncoder().encode(message);
