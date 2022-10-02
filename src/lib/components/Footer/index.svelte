@@ -9,6 +9,6 @@
 		<img src={ipfs("/QmUKSkxNPo45auwJhn8zz6zyS4cxtTS9PM4fX5haqmNxJc/logo.webp")} alt="logo" width="24" height="24" />
 		<a href="/" class="font-bold text-lg">firesquare</a>
 	</div>
-	<p><a href="https://git.frsqr.xyz/firesquare/front">© firesquare team 2022</a></p>
+	<p><a href="https://git.frsqr.xyz/firesquare/frontend">© firesquare team 2022</a></p>
 	<p><a href="mailto:contact@firesquare.ru">contact@firesquare.ru</a></p>
 </footer>
