@@ -5,8 +5,8 @@
 <h1 class="text-2xl text-center font-semibold text-neutral-50">Вход</h1>
 
 <div class="flex flex-col">
-	<Input name="nickname" placeholder="Ник" />
-	<Input password name="password" placeholder="Пароль" />
+	<Input name="nickname" placeholder="Ник" required />
+	<Input password name="password" placeholder="Пароль" required />
 	<Button onclick={() => {}} type="submit">Войти</Button>
 	<div class="text-center mt-2">
 		<p><Link href="/auth/login/signup" hover>Зарегистрироваться.</Link></p>
