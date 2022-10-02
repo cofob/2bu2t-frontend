@@ -2,7 +2,7 @@
 	import { ipfs } from "../../utils";
 </script>
 
-<nav class="w-full border-t-2 bg-opacity-50 bg-neutral-900 border-opacity-80 border-neutral-700 py-2 text-center">
+<footer class="w-full border-t bg-opacity-50 bg-neutral-900 border-opacity-80 border-neutral-700 py-2 text-center">
 	<div
 		class="flex justify-center items-center 2xl:max-w-screen-xl xl:max-w-screen-lg lg:max-w-screen-md md:max-w-screen-sm md:px-0 px-2 mx-auto pr-3 gap-x-1"
 	>
@@ -11,4 +11,4 @@
 	</div>
 	<p><a href="https://git.frsqr.xyz/firesquare/front">© firesquare team 2022</a></p>
 	<p><a href="mailto:contact@firesquare.ru">contact@firesquare.ru</a></p>
-</nav>
+</footer>

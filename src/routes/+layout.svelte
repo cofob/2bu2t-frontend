@@ -27,9 +27,7 @@
 	<link rel="preconnect" href={import.meta.env.VITE_IPFS_ENDPOINT} />
 </svelte:head>
 
-<main class="min-h-screen">
-	<slot />
-</main>
+<slot />
 
 <Footer />
 

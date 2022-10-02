@@ -6,14 +6,14 @@
 	import { ipfs } from "../../utils";
 	import HamburgerItem from "./HamburgerItem.svelte";
 	import Links from "./Links.svelte";
-	import Link from "./Link.svelte";
+	import { Link } from "$lib/components";
 
 	export let backdrop = true;
 </script>
 
 <nav
 	class="fixed w-screen py-3 {backdrop
-		? 'border-b-2 backdrop-blur-md bg-opacity-50 bg-neutral-900 border-opacity-40 border-neutral-700'
+		? 'border-b backdrop-blur-md bg-opacity-50 bg-neutral-900 border-opacity-80 border-neutral-700'
 		: ''}"
 >
 	<div
@@ -30,20 +30,18 @@
 				<a href="/" class="font-bold text-lg">firesquare</a>
 			</div>
 			<Links>
-				<Link href={import.meta.env.VITE_WIKI} blank><BookOpen size="16" /> Вики</Link>
-				<Link href={import.meta.env.VITE_DISCORD} blank><Chat size="16" /> Discord</Link>
+				<Link href={import.meta.env.VITE_WIKI} blank nav><BookOpen size="16" /> Вики</Link>
+				<Link href={import.meta.env.VITE_DISCORD} blank nav><Chat size="16" /> Discord</Link>
 			</Links>
 		</div>
 		<Links>
-			<Link href="/auth/login"><Login size="16" /> Войти</Link>
-			<Link href="/download">
-				{#if backdrop}
-					<button href="/download" class="bg-blue-600 rounded-md flex items-center gap-x-2 pr-2 shadow-md">
-						<span class="bg-blue-700 py-1 px-2 rounded-l-md">
-							<Download size="18" />
-						</span> Скачать
-					</button>
-				{/if}
+			<Link href="/auth/login" nav><Login size="16" /> Войти</Link>
+			<Link href="/download" nav>
+				<button href="/download" class="bg-blue-600 rounded-md flex items-center gap-x-2 pr-2 shadow-md">
+					<span class="bg-blue-700 py-1 px-2 rounded-l-md">
+						<Download size="18" />
+					</span> Скачать
+				</button>
 			</Link>
 		</Links>
 		<div
