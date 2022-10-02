@@ -1,6 +1,6 @@
 <script lang="ts">
 	import "$lib/app.css";
-	import { Nav, Footer } from "$lib/components";
+	import { Footer } from "$lib/components";
 	import NProgress from "nprogress";
 	import { navigating } from "$app/stores";
 
@@ -27,9 +27,7 @@
 	<link rel="preconnect" href={import.meta.env.VITE_IPFS_ENDPOINT} />
 </svelte:head>
 
-<Nav />
-
-<main>
+<main class="min-h-screen">
 	<slot />
 </main>
 
@@ -37,9 +35,3 @@
 
 <!-- TODO: add method to completely disable analytics -->
 {@html import.meta.env.VITE_ANALYTICS}
-
-<style lang="postcss">
-	main {
-		@apply min-h-screen;
-	}
-</style>
