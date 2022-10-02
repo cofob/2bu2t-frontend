@@ -5,4 +5,4 @@
 	if (center) styles += " min-h-screen px-2 sm:px-0 flex items-center justify-center";
 </script>
 
-<main class="{styles} {$$restProps.class ? $$restProps.class : ''}"><slot /></main>
+<section class="{styles} {$$restProps.class ? $$restProps.class : ''}"><slot /></section>
