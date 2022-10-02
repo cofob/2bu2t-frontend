@@ -2,19 +2,20 @@
 	import { ipfs } from "$lib/utils";
 
 	export let title: string;
-	export let description: string | null;
-	export let cover: string | null = ipfs("QmSnwhp78vrJo57jPshuwPQqc2s6U8CUqq51AazvSECWdF/default_cover.webp");
+	export let description: string | null = null;
+	export let cover: string | null = ipfs("/QmSnwhp78vrJo57jPshuwPQqc2s6U8CUqq51AazvSECWdF/default_cover.webp");
 	export let noindex = false;
+	export let title_postfix = " — Firesquare";
 
-	title = title + " — Firesquare";
+	const title_str = title + title_postfix;
 </script>
 
 <svelte:head>
-	<title>{title}</title>
+	<title>{title_str}</title>
 
-	<meta content={title} name="title" />
-	<meta content={title} property="og:title" />
-	<meta content={title} property="twitter:title" />
+	<meta content={title_str} name="title" />
+	<meta content={title_str} property="og:title" />
+	<meta content={title_str} property="twitter:title" />
 
 	{#if description != null}
 		<meta content={description} name="description" />

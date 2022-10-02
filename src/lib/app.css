@@ -6,19 +6,13 @@
 
 @layer base {
 	@font-face {
-		font-family: "Manrope";
-		src: url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
-				format("woff2 supports variations"),
-			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2")
-				format("woff2-variations"),
-			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.woff2") format("woff2"),
-			url("ipfs://QmZxfrtTwWTS59UCZ72dJXqwCJWFiPAvgxrGUT62ASARCp/variable/Manrope%5Bwght%5D.ttf") format("ttf");
+		font-family: "Cantarell";
+		src: url("ipfs://QmRHcDKPj2nHc9z4h5QbqppYUqAoR9pSvFR97dgDcBGoSX/Cantarell-VF.otf") format("opentype");
 		font-weight: 100 1000;
 		font-stretch: 25% 151%;
 	}
 
 	html {
-		@apply motion-safe:scroll-smooth antialiased break-words;
-		font-family: "Manrope", sans-serif;
+		@apply motion-safe:scroll-smooth antialiased break-words bg-neutral-800 text-neutral-200;
 	}
 }

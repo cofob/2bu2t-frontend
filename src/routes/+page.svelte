@@ -1,23 +1,17 @@
 <script lang="ts">
-	import { Auth } from "$lib/api";
-
-	let auth = new Auth(fetch);
-	let nickname, email, password;
-
-	async function submit() {
-		console.log(auth.register(email, nickname, password));
-	}
+	import { Meta } from "$lib/components";
 </script>
 
-<h1>Hello world!</h1>
+<Meta title="Главная" />
 
-<input bind:value={nickname} type="text" />
-<input bind:value={email} type="email" />
-<input bind:value={password} type="password" />
-<button on:click={submit}>Submit</button>
+<section>
+	<h1 class="font-black text-7xl pt-4">Лучший сервер</h1>
+	<p class="pt-8 pb-10 text-xl">По мнению всего блять человечества.</p>
+	<a href="#" class="p-2 py-3 bg-blue-600 rounded-lg text-xl font-bold">Что-то сделать</a>
+</section>
 
 <style lang="postcss">
-	h1 {
-		@apply text-lg;
+	section {
+		@apply py-72 pb-96 bg-gradient-to-tl from-neutral-900 to-neutral-800 text-center;
 	}
 </style>
