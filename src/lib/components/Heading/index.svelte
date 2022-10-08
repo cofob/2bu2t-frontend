@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { addClass } from "$src/lib/utils";
+
 	export let level: 1 | 2 | 3 | 4 | 5 | 6;
 
 	const by_level = {
@@ -13,6 +15,6 @@
 	const element = `h${level}`;
 </script>
 
-<svelte:element this={element} class="{by_level[level]} {$$restProps.class ? $$restProps.class : ''}">
+<svelte:element this={element} class={addClass($$restProps, by_level[level])}>
 	<slot />
 </svelte:element>

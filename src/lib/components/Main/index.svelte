@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { addClass, joinClasses } from "$src/lib/utils";
+
 	export let center = false;
 
-	let styles = "";
-	if (center) styles += " min-h-screen px-2 sm:px-0 flex items-center justify-center";
+	let styles: string[] = [];
+	if (center) styles.push("min-h-screen px-2 sm:px-0 flex items-center justify-center");
 </script>
 
-<main class="{styles} {$$restProps.class ? $$restProps.class : ''}"><slot /></main>
+<main class={addClass($$restProps, joinClasses(...styles))}><slot /></main>

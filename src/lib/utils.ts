@@ -9,3 +9,12 @@ export function ipns(cid: string): string {
 export function timestamp() {
 	return Math.floor(Date.now() / 1000);
 }
+
+export function joinClasses(...args: any[]): string {
+	return args.flat().join(" ");
+}
+
+export function addClass(restprops: SvelteRestProps, styles: string): string {
+	if (restprops.class) return restprops.class + " " + styles;
+	return styles;
+}

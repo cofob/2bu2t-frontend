@@ -1,6 +1,6 @@
 <script lang="ts">
 	import X from "svelte-heros/X.svelte";
-	import { ipfs } from "../../utils";
+	import { ipfs, joinClasses } from "../../utils";
 	import HamburgerItem from "./HamburgerItem.svelte";
 	import Links from "./Links.svelte";
 	import LeftLinks from "./LeftLinks.svelte";
@@ -13,9 +13,10 @@
 </script>
 
 <nav
-	class="fixed w-screen py-3 {backdrop
-		? 'border-b backdrop-blur-md bg-opacity-50 bg-neutral-900 border-opacity-80 border-neutral-700'
-		: ''}"
+	class={joinClasses(
+		"fixed w-screen py-3 motion-safe:transition-all",
+		backdrop ? "border-b backdrop-blur-md bg-opacity-50 bg-neutral-900 border-opacity-80 border-neutral-700" : [],
+	)}
 >
 	<div
 		class="flex items-center justify-between 2xl:max-w-screen-xl xl:max-w-screen-lg lg:max-w-screen-md md:max-w-screen-sm md:px-0 px-3 mx-auto"
@@ -38,9 +39,10 @@
 			<RightLinks />
 		</Links>
 		<div
-			class="flex flex-col items-center gap-y-1 sm:hidden rounded-md p-2 hover:cursor-pointer motion-safe:transition-all {!backdrop
-				? 'bg-opacity-60 bg-neutral-900'
-				: ''} {!hidden ? 'rotate-90' : ''}"
+			class={joinClasses(
+				"flex flex-col items-center gap-y-1 sm:hidden rounded-md p-2 hover:cursor-pointer motion-safe:transition-all",
+				!hidden ? "rotate-90" : [],
+			)}
 			on:click={() => {
 				hidden = !hidden;
 				if (!backdrop_initial) {
