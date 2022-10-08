@@ -10,11 +10,9 @@ pipeline:
   build:
     image: node:18
     commands:
-      - yarn build:static
-  pin-cluster:
-    image: cofob/ipfs-cluster-ctl
+      - yarn build:cloudflare
+  publish:
+    image: cofob/wrangler
     commands:
-      - ipfs-cluster-ctl --host /dns4/rat.frsqr.xyz/tcp/9094 --basic-auth default:$CLUSTER_SECRET add -r --expire-in 2160h --name frontend/preview/$(date +%s) -Q build/ > cid.txt
-      - cat cid.txt
-      - echo "https://ipfsqr.ru/ipfs/$(cat cid.txt)"
-    secrets: [CLUSTER_SECRET]
+      - wrangler pages publish --project-name=firesquare --branch=${CI_COMMIT_SOURCE_BRANCH} --commit-dirty=true .svelte-kit/cloudflare
+    secrets: [CF_API_TOKEN, CF_ACCOUNT_ID]

@@ -5,7 +5,9 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "VITE_DEPLOY_TARGET=node PROD=true vite build",
+		"build:node": "VITE_DEPLOY_TARGET=node PROD=true vite build",
 		"build:static": "VITE_DEPLOY_TARGET=static PROD=true vite build && cp ./build/200.html ./build/ipfs-404.html && cp ./build/200.html ./build/index.html",
+		"build:cloudflare": "VITE_DEPLOY_TARGET=cloudflare PROD=true vite build",
 		"preview": "vite preview",
 		"start": "yarn build && vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -14,6 +16,7 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"devDependencies": {
+		"@sveltejs/adapter-cloudflare": "next",
 		"@sveltejs/adapter-node": "next",
 		"@sveltejs/adapter-static": "next",
 		"@sveltejs/kit": "next",
