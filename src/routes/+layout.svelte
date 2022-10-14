@@ -4,6 +4,15 @@
 	import NProgress from "nprogress";
 	import { navigating } from "$app/stores";
 
+	import * as Sentry from "@sentry/svelte";
+	import { BrowserTracing } from "@sentry/tracing";
+
+	Sentry.init({
+		dsn: "https://f390224b418344c9b14a76667f275130@o4503981424705536.ingest.sentry.io/4503981429030912",
+		integrations: [new BrowserTracing()],
+		tracesSampleRate: 1.0,
+	});
+
 	NProgress.configure({
 		showSpinner: false,
 	});
